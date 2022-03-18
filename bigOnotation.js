@@ -57,3 +57,17 @@ function onlyElementsAtEvenIndex(array) {
 console.log(subtotals([1,2,3,4,5,6,76,7,89,5,8,4,3,6,3,663,35,7,77]))
 
 //SPACE COMPLEXITY
+function sum(arr){
+    let total=0
+    for (let i=0; i<arr.length; i++){
+      total +=arr[i]
+    }
+    return total
+}
+function double(arr){
+    let newArr=[]
+    for(let i=0; i<arr.length; i++){
+      newArr.push(2*arr[i])
+    }
+    return newArr
+}
