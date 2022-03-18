@@ -7,6 +7,7 @@ function addUpp(n){
     }
     return total
 }
+console.log(addUpp(5))
 
 function addUpp1(n){
     return n*(n+1)/2
@@ -14,6 +15,7 @@ function addUpp1(n){
 console.log( addUpp(5))
 
 //Big O notation is a way to formalize fuzzy counting
+//TIME COMPLEXITY
 //O(n)
 function countingAllPairs(n){
     for(let i=0; i<n; i++){
@@ -39,3 +41,19 @@ function onlyElementsAtEvenIndex(array) {
     return newArray;
 }
  console.log( onlyElementsAtEvenIndex([1,2,3,4,5,6,76,7,89,5,8,4,3,6,3,663,35,7,77]))
+
+ //O(n squared)
+ function subtotals(array) {
+    var subtotalArray = Array(array.length);
+    for (var i = 0; i < array.length; i++) {
+        var subtotal = 0;
+        for (var j = 0; j <= i; j++) {
+            subtotal += array[j];
+        }
+        subtotalArray[i] = subtotal;
+    }
+    return subtotalArray;
+}
+console.log(subtotals([1,2,3,4,5,6,76,7,89,5,8,4,3,6,3,663,35,7,77]))
+
+//SPACE COMPLEXITY
