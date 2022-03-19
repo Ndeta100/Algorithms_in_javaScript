@@ -71,3 +71,9 @@ function double(arr){
     }
     return newArr
 }
+
+let instructor={
+    firstName:'Ndeta',
+    isInstructor:true,
+    favoriteNumber:[1,2,3,4]
+}
