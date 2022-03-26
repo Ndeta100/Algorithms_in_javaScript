@@ -2,7 +2,6 @@
 
 //1. Devise a plan for solving aproblem
 //2. Master common problem solving patterns
-
 //Understand the problem
 //Explore concrete examples
 //Break it down
