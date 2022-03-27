@@ -53,3 +53,9 @@ function factorial(num){
     }
     return total
 }
+
+//factorial recursive
+function factorialRecursive(num){
+    if(num===1) return 1
+    return num*factorialRecursive(num-1)
+}
