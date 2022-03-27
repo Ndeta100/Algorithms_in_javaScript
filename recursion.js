@@ -67,7 +67,7 @@ function factorialRecursive(num){
        if(helperInput.length===0){
            return
        }
-       if(helperInput[0]%2===0){
+       if(helperInput[0]%2!==0){
            results.push(helperInput[0])
        }
        helper(helperInput.slice(1))
