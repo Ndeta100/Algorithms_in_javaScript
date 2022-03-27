@@ -59,3 +59,20 @@ function factorialRecursive(num){
     if(num===1) return 1
     return num*factorialRecursive(num-1)
 }
+
+//helper method recursion
+ function collectOdds(num){
+     let results=[]
+   function helper(helperInput){
+       if(helperInput.length===0){
+           return
+       }
+       if(helperInput[0]%2===0){
+           results.push(helperInput[0])
+       }
+       helper(helperInput.slice(1))
+   }
+   
+ helper(num)
+ return results
+ }
