@@ -43,3 +43,27 @@ if(arr[middle]==val){
     return -1
 }}
 binary([2,5,6,9,13,15,28,30],28)
+
+//Naive string search
+//Suppose you want to count the number of times a smaller string appears in a longer string
+//A straightforward approach involves checking pairs of characters individually
+
+//pseudocode
+//Loop over the longer string
+//loop over the shorter string
+//If the character don't match, keep going
+//If you complete the inner loop and find a match, increment the of the matches 
+//Return the count
+ function naiveSearch(long, short){
+     let count=0
+  for (let i=0; i<long.length; i++){
+      for(let j=0; j<short.length; j++){
+          if(short[j]!==long[i+j]){
+              break
+          }
+          if(j===short.length-1) count++
+      }
+  }
+  return count
+ }
+ naiveSearch('lorie loled', 'lol')
