@@ -68,3 +68,5 @@ binary([2,5,6,9,13,15,28,30],28)
   return count
  }
  naiveSearch('lorie loled', 'lol')
+
+ 
