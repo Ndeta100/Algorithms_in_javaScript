@@ -41,7 +41,6 @@ function bubbleSort1(arr){
     return arr
 }
 bubbleSort1([2,4,5,6,44,7,35,356,7,88])
-
 //Optimised approach
 function bubbleSort(arr){
     for(let i=arr.length; i>0; i--){
@@ -53,6 +52,5 @@ function bubbleSort(arr){
             }
         }
     }
-
     return arr
 }
