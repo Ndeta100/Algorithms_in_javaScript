@@ -16,7 +16,7 @@
                   results.push(arr2[j])
                   j++
               }
-          }
+          } 
           while(i<arr1.length){
               results.push(arr1[i])
               i++
@@ -27,4 +27,16 @@
         }
           
             return results
+        }
+
+        //Merge sort pseudocode
+        //Break up array intp halves until you have arrays that are empty or have one element 
+        //Once you have smaller sorted arrays, merge those arryas with other sorted arrays untill you are back at the full length of the arary 
+        //Once the array has been merged back together, return the merged(and sorted!) array
+        function mergeSort(arr){
+            if(arr.length<=1) return arr
+            let mid=Math.floor(arr.length/2)
+            let left=mergeSort(arr.slice(0,mid))
+            let right=mergeSort(arr.slice(mid))
+            return merge(left, right)
         }
