@@ -15,14 +15,14 @@ function numCompare(a, b){
 //Bubble sort overview
 //A sorting algorithm  where the largest value bubble up to the top
 function swap(arr, index1, index2){
-    let temp=arr
+    let temp=arr[index1]
     arr[index1]=arr[index2]
     arr[index2]=temp
 }
 
 //Start looping from with a variable called i the end of the array towards the beginning 
 //Start an inner loop with a variable called j from the beginning untill i-1
-//if arr[i] id greater than arr[j+1], swap those two values
+//if arr[i] is greater than arr[j+1], swap those two values
 //Return the sorted array
 
 
