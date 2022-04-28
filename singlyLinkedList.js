@@ -30,6 +30,13 @@ first.next.next.next.next=new Node('you')
 //Increment the length by 1
 //Return the linked list
 
+//POPPING PSEUDOCODE
+//If there are no nodes in the list, return undefined
+//Loop through the list until you reach the tail
+//Set the next property of the 2nd to the last node to be null
+//Set the tail to be the second to the last node
+//Decrement the length of the list by 1
+//Return the value of the node removed
 class singlyLinkedList{
     constructor(){
         this.head=null
@@ -47,6 +54,23 @@ class singlyLinkedList{
      }
      this.length++
      return this
+    }
+    pop(){
+      if(!this.head) return undefined
+      let current=this.head
+      let newTail=current
+      while(current.next){
+          newTail=current
+          current=current.next
+      }
+      this.tail=newTail
+      this.tail.next=null
+      this.length--
+      if(this.length===0){
+          this.head=null
+          this.tail=null
+      }
+      return current
     }
 }
 //Good approach 
