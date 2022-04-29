@@ -53,6 +53,12 @@ first.next.next.next.next=new Node('you')
 //Set the head property on the list to be that newly created node 
 //Increment the length of the list by 1
 //Return the linked list
+
+
+//GET PSEUDOCODE
+//This function should accept an index
+//If the index is less than zero or greater than or equal to the length of the list, return null
+//Loop through the list until you reach the index and return the node at that specific index
 //Good approach 
 class singlyLinkedList{
     constructor(){
@@ -108,6 +114,16 @@ class singlyLinkedList{
         this.length++
         return this
 
+    }
+    get(index){
+        if(index<0 || index>=this.length) return null
+       let counter=0
+       let current=this.head
+       while(counter !=index){
+           current=current.next
+           counter++
+       }
+       return current
     }
 }
 
