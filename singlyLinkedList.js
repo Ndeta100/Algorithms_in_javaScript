@@ -59,6 +59,11 @@ first.next.next.next.next=new Node('you')
 //This function should accept an index
 //If the index is less than zero or greater than or equal to the length of the list, return null
 //Loop through the list until you reach the index and return the node at that specific index
+
+//SET PSEUDOCODE
+//This function should accepta value and an index
+//Use your fet function to find the specific node
+//If the node is found, set the value of that node to be the value passed to the fuction and return true
 //Good approach 
 class singlyLinkedList{
     constructor(){
@@ -124,6 +129,14 @@ class singlyLinkedList{
            counter++
        }
        return current
+    }
+    set(index, val){
+        let foundNode=this.get(index)
+        if(foundNode){
+            foundNode.val=val
+            return true
+        }
+        return false
     }
 }
 
