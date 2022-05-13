@@ -74,6 +74,15 @@ first.next.next.next.next=new Node('you')
 //Set the next property on the new node to be the previous next
 //increment the length
 //Return true
+
+//REMOVE PSEUDOCODE
+//If the index is less than zero or greater than the length. return undefined 
+//If the index is the same as the length-1, pop
+//If the index is 0, shift
+//Otherwise, using the get method, access the node at the index-1
+///Set the next property pon that node to be the next of the next node
+//Decrement the length
+//Return the value of the node removed 
 //Good approach 
 class singlyLinkedList{
     constructor(){
@@ -151,13 +160,23 @@ class singlyLinkedList{
      insert(index, val){
          if(index<0 || index>this.length) return false
          if(index===this.length) return this.push(val)
-         if(index===0) return this.unshift(val)
+         if(index===0) return !!this.unshift(val)
          newNode =new Node(val)
          const prev=this.get(index-1)
          const temp=prev.next
          newNode.next=temp
          this.length++
          return true
+     }
+     remove(index ){
+         if(index<0 || index>=this.length) return undefined
+         if(index===0) return this.shift()
+         if(index===this.length-1) return this.pop()
+         const previousNode=this.get(index-1)
+         const removed=previousNode.next
+         previousNode.next=removed.next
+         this.length--
+         return removed
 
      }
 }
