@@ -64,6 +64,16 @@ first.next.next.next.next=new Node('you')
 //This function should accepta value and an index
 //Use your fet function to find the specific node
 //If the node is found, set the value of that node to be the value passed to the fuction and return true
+
+//INSERT PSEUDOCODE
+//if the index is less thn zero or greater than the length, return false
+//If the index is the same as the length, push a new node to the end of the list 
+//if the index is 0, unshift a new node to the start of the list 
+//Otherwise, using the get method, accedd the node at the index -1
+//Set the next property on that node  to be the new node
+//Set the next property on the new node to be the previous next
+//increment the length
+//Return true
 //Good approach 
 class singlyLinkedList{
     constructor(){
@@ -138,6 +148,18 @@ class singlyLinkedList{
         }
         return false
     }
+     insert(index, val){
+         if(index<0 || index>this.length) return false
+         if(index===this.length) return this.push(val)
+         if(index===0) return this.unshift(val)
+         newNode =new Node(val)
+         const prev=this.get(index-1)
+         const temp=prev.next
+         newNode.next=temp
+         this.length++
+         return true
+
+     }
 }
 
 let list = new singlyLinkedList()
