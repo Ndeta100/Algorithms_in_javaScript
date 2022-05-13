@@ -174,8 +174,8 @@ class singlyLinkedList{
          if(index===this.length) return this.push(val)
          if(index===0) return !!this.unshift(val)
          newNode =new Node(val)
-         const prev=this.get(index-1)
-         const temp=prev.next
+         let prev=this.get(index-1)
+         let temp=prev.next
          newNode.next=temp
          this.length++
          return true
@@ -184,8 +184,8 @@ class singlyLinkedList{
          if(index<0 || index>=this.length) return undefined
          if(index===0) return this.shift()
          if(index===this.length-1) return this.pop()
-         const previousNode=this.get(index-1)
-         const removed=previousNode.next
+         let previousNode=this.get(index-1)
+         let removed=previousNode.next
          previousNode.next=removed.next
          this.length--
          return removed
@@ -205,8 +205,8 @@ class singlyLinkedList{
          return this
      }
      print(){
-         const arr=[]
-        const current=this.head
+         let arr=[]
+        let current=this.head
          while(current){
              arr.push(current.val)
              current=current.next
