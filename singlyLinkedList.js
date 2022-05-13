@@ -83,6 +83,18 @@ first.next.next.next.next=new Node('you')
 ///Set the next property pon that node to be the next of the next node
 //Decrement the length
 //Return the value of the node removed 
+
+
+//REVERSE PSEUDOCODE
+//Swap the head and tail
+//Create a variable called next
+//create a variable called prev
+//Create a variable called node and initialize it to the head prpoerty
+//Loop throght the list
+//Set next to be the next property on whatever node is
+//Set next peoperty on the node to be whatever prev is
+//Set prev to be the value of the node variable
+//Set the node variable to be the value of the next variable
 //Good approach 
 class singlyLinkedList{
     constructor(){
@@ -177,8 +189,31 @@ class singlyLinkedList{
          previousNode.next=removed.next
          this.length--
          return removed
-
      }
+     reverse(){
+         let node=this.head
+         this.head=this.tail
+         this.tail=node
+         let next
+         let prev=null
+         for(let i=0; i<this.length; i++){
+             next=node.next
+             node.next=prev
+             prev=node
+             node=next
+         }
+         return this
+     }
+     print(){
+         const arr=[]
+        const current=this.head
+         while(current){
+             arr.push(current.val)
+             current=current.next
+         }
+         console.log(arr)
+    }
+
 }
 
 let list = new singlyLinkedList()
