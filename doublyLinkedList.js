@@ -20,6 +20,18 @@
 //Set the newTail's next to null
 //Decrement the length
 //Return the value removed
+
+//SHIFT PSEUDOCODE
+//If the length is 0, return undefined
+//Store the current head property in a variable (we'll call it old head)
+//If the length is zero
+        //Set the head to be null
+        //Set the tail to be null
+//Update the head to be the next of the old head
+//Set the head's prev property to be null
+//Set the old head's next to be null
+//Decrement the length
+//Return the head
 class Node{
     constructor(val){
         this.val=val
@@ -61,7 +73,18 @@ class DoublyLinkedList{
         }
         this.length--
         return poppedNode
-
-
+    }
+    shift(){
+       if(this.length===0) return undefined
+       let oldHead=this.head
+       if(this.length===1){
+           this.head=null
+           this.tail=null
+       }
+       this.head=oldHead.next
+       this.head.prev=null
+       oldHead.next=null
+       this.length--
+       return oldHead
     }
 }
