@@ -11,6 +11,15 @@
 //Set the tail to be the newly created node
 //Increment the length
 //Return the Doubly Linkedd List 
+
+//POP PSEUDOCODE
+//If there is no head, return uindefined
+//Store the current tail in a variable to return later
+//If the length is 1, set the head and tail to be null
+//Update the tail to be the previous Node
+//Set the newTail's next to null
+//Decrement the length
+//Return the value removed
 class Node{
     constructor(val){
         this.val=val
@@ -38,5 +47,21 @@ class DoublyLinkedList{
       }
       this.length++
       return this
+    }
+    pop(){
+        if(!this.head) return undefined
+        let poppedNode=this.tail
+        if(this.length===1){
+            this.head=null
+            this.tail=null
+        }else{
+            this.tail=poppedNode.prev
+            this.tail.next=null
+            poppedNode.prev=null
+        }
+        this.length--
+        return poppedNode
+
+
     }
 }
