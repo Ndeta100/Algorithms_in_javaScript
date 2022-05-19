@@ -32,6 +32,17 @@
 //Set the old head's next to be null
 //Decrement the length
 //Return the head
+//UNSHIFT PSEUDOCODE
+//Create a new node with the value passed to the function
+//If the length is 0
+    //Set the head to be the new node
+    //Set the tail to be the new node
+//Otherwise
+       //Set the prev property on the head of the list to be the new node
+       //Set  the next property on the new node to be the head property
+       //Update the head to be the new node
+//Increment the lenght
+//Return the list 
 class Node{
     constructor(val){
         this.val=val
@@ -39,8 +50,6 @@ class Node{
         this.prev=null
     }
 }
-
-
 class DoublyLinkedList{
     constructor(){
         this.head=null
@@ -80,11 +89,26 @@ class DoublyLinkedList{
        if(this.length===1){
            this.head=null
            this.tail=null
-       }
+       }else{
        this.head=oldHead.next
        this.head.prev=null
        oldHead.next=null
+       }
        this.length--
        return oldHead
+    }
+    unshift(val){
+        let newNode=new Node(val)
+        if(!this.head){
+            this.head=newNode
+            this.tail=newNode
+        }else{
+            this.head.prev=newNode
+            newNode.next=this.head
+            this.head=newNode
+        }
+        this.length++
+        return this
+
     }
 }
