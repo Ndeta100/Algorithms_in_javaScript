@@ -56,6 +56,15 @@
 //If the get method returns a valid node, set the value of the node to be the value passed to the function
 //Return true
 //Otherwise return false
+
+//INSERT PSEUDOCODE
+//If the index is less than zero or greater than or equal to the length, return false
+//If the index is 0, unshift 
+//If the index is the same as the length, push
+//Use the get method to access the index-1
+//Set the next and prev properties on the correct not to link everything together
+//Increment the length
+//Return true
 class Node{
     constructor(val){
         this.val=val
@@ -153,5 +162,20 @@ class DoublyLinkedList{
              return true
          }
          return false
+    }
+    insert(index, val){
+      if(index<0 ||index>this.length) return false
+      if(index===0) return !!this.unshift(val)
+      if(index===this.length) return !!this.push(val)
+
+      let newNode=new Node(val)
+      let beforeNode=this.get(index-1)
+      let afterNode=beforeNode.next
+      beforeNode.next=newNode
+      newNode.prev=beforeNode
+      newNode.next=afterNode
+      afterNode.prev=newNode
+      this.length++
+      return true
     }
 }
