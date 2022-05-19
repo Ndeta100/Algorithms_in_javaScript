@@ -43,6 +43,14 @@
        //Update the head to be the new node
 //Increment the lenght
 //Return the list 
+//GET PSEUDOCODE
+//If the index is less than 0 or greater or equal to the length, return null
+//If the index is less than or equal to half the length of the list
+       //loop through the list starting from the head and loop towards the middle
+       //Return the node once it is found
+//If the index is greater than half the length of the list 
+     //Loop through the list starting from the tail and loop towards the middle
+     //Return the node once it is found
 class Node{
     constructor(val){
         this.val=val
@@ -109,6 +117,27 @@ class DoublyLinkedList{
         }
         this.length++
         return this
+
+    }
+    get(index){
+     if(index<0 || index>=this.length) return null
+     let count, current
+     if(index<=this.length/2){
+         count=0
+         current=this.head
+         while(count!=index){
+             current=current.next
+             count++
+         }
+
+     }else{
+         count=this.length-1
+         current=this.tail
+         while(count!=index){
+             current=current.prev
+             count--
+         }
+     }
 
     }
 }
