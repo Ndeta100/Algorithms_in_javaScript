@@ -65,6 +65,15 @@
 //Set the next and prev properties on the correct not to link everything together
 //Increment the length
 //Return true
+//  REMOVE PSEUDOCODE
+//If the index is less than zero or greater than or equal to the length return undefined 
+//If the index is 0, shift 
+//If the index is the same as the length-1, pop
+//Use the get method to retrieve the item to be removed 
+//Update the next and prev properties to remove the found node from the list 
+//Set next and prev to null on the found node
+//Decrement the length
+//Return the removed node
 class Node{
     constructor(val){
         this.val=val
@@ -167,7 +176,6 @@ class DoublyLinkedList{
       if(index<0 ||index>this.length) return false
       if(index===0) return !!this.unshift(val)
       if(index===this.length) return !!this.push(val)
-
       let newNode=new Node(val)
       let beforeNode=this.get(index-1)
       let afterNode=beforeNode.next
@@ -177,5 +185,18 @@ class DoublyLinkedList{
       afterNode.prev=newNode
       this.length++
       return true
+    }
+    remove(index){
+     if(index<0|| index>=this.length) return undefined
+     if(index===0) return this.shift()
+     if(index===this.length-1) return this.pop()
+     let removedNode=this.get(index)
+     removedNode.prev.next=removedNode.next
+     removedNode.next.prev=removedNode.prev
+     removedNode.next=null
+     removedNode.prev=null
+     this.length--
+     return removedNode
+
     }
 }
