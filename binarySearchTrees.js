@@ -81,6 +81,7 @@ class BinarySearchTree{
                 found=true
             }
         }
-        return
+        if(!found) return 'Not Found'
+        return current
     }
 }
