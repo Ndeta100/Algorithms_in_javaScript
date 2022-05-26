@@ -37,6 +37,16 @@
       //If there is a right property on the node dequeue --add it to the queue
 //Return the variable that stores the value
 
+//DEPTH FIRST SEARCH PSEUDOCODE
+//Create a variable to store the values of the node visited
+//store the root of the BST in a variable called current
+//Write a helper function which accepts a node
+//Push the value of the node to the variable that stores the valaue
+//If the node has a left property, call the helper function with the left property on the node 
+//If the node has a right property, call the helper function with the right property on the node 
+//invoke the helper function with the current variable 
+//Return the array of values
+
     class Node{
     constructor(value){
         this.value=value
@@ -103,6 +113,17 @@ class BinarySearchTree{
             if(node.left) queue.push(node.left)
             if(node.right) queue.push(node.right)
         }
+        return data
+    }
+    DFSPreOrder(){
+        let data=[]
+        let current=this.root
+        function traversal(node){
+            data.push(node.value)
+            if(node.left) traversal(node.left)
+            if(node.right) traversal(node.right)
+        }
+        traversal(current)
         return data
     }
 }
