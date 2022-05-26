@@ -138,4 +138,16 @@ class BinarySearchTree{
         traversal(current)
         return data
     }
+    DFSInOrder(){
+        let data=[]
+        let current=this.root
+        function traversal(node){
+            if(node.left) traversal(node.left)
+            data.push(node.value)
+            if(node.right) traversal(node.right)
+          
+        }
+        traversal(current)
+        return data
+    }
 }
