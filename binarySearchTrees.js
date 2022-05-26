@@ -28,6 +28,15 @@
                //Check to see if there is a node to the left 
                //If there is, move to that node and repeat these steps
                //If there is not, we're are done searching
+//BREATH FIRST SEARCH PSEUDOCODE
+//Create a queue (this can be an array) an a variable to store the values of node visited
+//Place the root node in the queue
+//Loop as long as there is anything in the queue
+      //Dequeue a node from the queue and push the value of the node into the variable that stores the node
+      //If there is a left property on the node dequeue -add it to the queue
+      //If there is a right property on the node dequeue --add it to the queue
+//Return the variable that stores the value
+
     class Node{
     constructor(value){
         this.value=value
@@ -66,7 +75,6 @@ class BinarySearchTree{
            }
        }
 
-
     }
     find(val){
         if(this.root===null) return false
@@ -83,5 +91,18 @@ class BinarySearchTree{
         }
         if(!found) return 'Not Found'
         return current
+    }
+    BFS(){
+        let node=this.root
+        let data=[]
+        let queue=[]
+        queue.push(node)
+        while(queue.length){
+            node=queue.shift()
+            data.push(node.value)
+            if(node.left) queue.push(node.left)
+            if(node.right) queue.push(node.right)
+        }
+        return data
     }
 }
