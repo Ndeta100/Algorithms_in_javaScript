@@ -12,6 +12,20 @@
      //If any of those values not been visited, recursively invoke the helper function with that vertex
 //Invoke the helper function with the starting vertex
 //Return the result array
+
+    //DFS TRAVERSAL INTERATIVE
+    //THe function should accept a startting node
+    //Create a stack to help use keep track of vertices (use a list/array)
+    //Create a list to store the end results, to be returned at the very end
+    //Create an object to store visited vertices
+    //Add the starting vertex to the stack, and mark it visited
+    //While the stack has something in it
+           //Pop the next vertex from the stack
+           //If that vertex hasn't been visited yet
+                   //Mark it as visited
+                   //Add it to the result list
+                   //Push all of it'sneighbors into the stack
+//Return the result array
 class Graph{
     constructor(){
           this.adjecencyList={}
@@ -52,5 +66,25 @@ class Graph{
         })
     })(start)
     return result
+    }
+    DFSIterative(start){
+        const stack=[start]
+        const result=[]
+        const visited={}
+        let currentVertexz
+        visited[start]=true
+        while(stack.length){
+            currentVertex=stack.pop()
+            result.push(currentVertex)
+
+            this.adjecencyList[currentVertex].forEach(neighbor=>{
+                if(!visited[neighbor]){
+                    visited[neighbor]=true
+                    stack.push(neighbor)
+                }
+            })
+        }
+        return result
+
     }
 }
